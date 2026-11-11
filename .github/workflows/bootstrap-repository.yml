@@ -2,7 +2,7 @@ name: Bootstrap DANNY AUTOPILOT
 on:
   push:
     branches: [main]
-    paths: [bootstrap.zip]
+    paths: [bootstrap/trigger.txt]
 permissions:
   contents: write
 jobs:
@@ -10,11 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install project files
+      - name: Decode and install project files
         run: |
+          cat bootstrap/chunk*.b64 | tr -d '\n' | base64 -d > bootstrap.zip
           unzip -o bootstrap.zip
           cp -R danny-autopilot-github/. .
-          rm -rf danny-autopilot-github bootstrap.zip .github/workflows/bootstrap-repository.yml
+          rm -rf danny-autopilot-github bootstrap.zip bootstrap
+          rm -f .github/workflows/bootstrap-repository.yml
       - name: Commit project
         run: |
           git config user.name "github-actions[bot]"
