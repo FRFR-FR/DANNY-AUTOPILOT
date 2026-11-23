@@ -26,7 +26,7 @@ SOURCES = [
         "url": "https://archive.oceanexplorer.noaa.gov/okeanos/explorations/ex2107/media-resources/media/ex2107-bigfin-squid.mp4",
         "page": "https://archive.oceanexplorer.noaa.gov/okeanos/explorations/ex2107/media-resources/bigfin-squid.html",
         "credit": "NOAA Ocean Exploration, Windows to the Deep 2021",
-        "start": 90,\n        "crop": "crop=960:540:120:60,scale=1280:720",
+        "start": 90,\n        "crop": "crop=480:270:60:30,scale=1280:720",
         "duration": 12,
     },
     {
