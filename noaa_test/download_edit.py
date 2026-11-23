@@ -64,7 +64,7 @@ def download(item: dict) -> Path:
 
 def edit(item: dict, source: Path) -> Path:
     dest = EDITED / f'{item["id"]}_720p.mp4'
-    draw = item["title"].replace(":", r"\\:")
+    draw = item["title"].replace(":", r"\:")
     vf = (
         "scale=1280:720:force_original_aspect_ratio=decrease,"
         "pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,"
