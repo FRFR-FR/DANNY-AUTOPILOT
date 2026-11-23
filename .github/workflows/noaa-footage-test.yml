@@ -1,0 +1,36 @@
+name: NOAA footage download and edit test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "noaa_test/**"
+      - ".github/workflows/noaa-footage-test.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  download-edit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Download NOAA clips and create edited compilation
+        run: python3 noaa_test/download_edit.py
+
+      - name: Upload originals, edited clips, manifest and copy-ready credits
+        uses: actions/upload-artifact@v4
+        with:
+          name: noaa-deep-sea-footage-test
+          path: noaa-test-output/
+          if-no-files-found: error
+          retention-days: 7
