@@ -26,7 +26,7 @@ SOURCES = [
         "url": "https://archive.oceanexplorer.noaa.gov/okeanos/explorations/ex2107/media-resources/media/ex2107-bigfin-squid.mp4",
         "page": "https://archive.oceanexplorer.noaa.gov/okeanos/explorations/ex2107/media-resources/bigfin-squid.html",
         "credit": "NOAA Ocean Exploration, Windows to the Deep 2021",
-        "start": 82,
+        "start": 90,\n        "crop": "crop=960:540:120:60,scale=1280:720",
         "duration": 12,
     },
     {
@@ -35,7 +35,7 @@ SOURCES = [
         "url": "https://oceanexplorer.noaa.gov/wp-content/uploads/2021/08/EX2104_VID_20210714_DIVE11_DEEP_SEA_DINING_Web2-1.mp4",
         "page": "https://oceanexplorer.noaa.gov/expedition-feature/okeanos-ex2104-features-hungryseastar/",
         "credit": "NOAA Ocean Exploration, 2021 North Atlantic Stepping Stones: New England and Corner Rise Seamounts",
-        "start": 0,
+        "start": 18,
         "duration": 12,
     },
 ]
@@ -65,9 +65,9 @@ def download(item: dict) -> Path:
 def edit(item: dict, source: Path) -> Path:
     dest = EDITED / f'{item["id"]}_720p.mp4'
     draw = item["title"].replace(":", r"\:")
+    framing = item.get("crop", "scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2")
     vf = (
-        "scale=1280:720:force_original_aspect_ratio=decrease,"
-        "pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,"
+        framing + ",setsar=1,fps=30,"
         f"drawtext=text='{draw}':fontcolor=white:fontsize=30:"
         "box=1:boxcolor=black@0.55:boxborderw=16:x=40:y=h-85"
     )
