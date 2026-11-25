@@ -130,29 +130,34 @@ def main() -> int:
         fitted_path = clips / f"line-{index:02d}-{speaker.lower()}-fit.wav"
 
         last_error = None
-        for attempt in range(3):
-            try:
-                response = client.tts.generate(
-                    model_id=spec.get("model_id", "sonic-3.6"),
-                    transcript=line["text"],
-                    voice=VOICE_IDS[speaker],
-                    output_format={
-                        "container": "wav",
-                        "encoding": "pcm_s16le",
-                        "sample_rate": SAMPLE_RATE,
-                    },
-                    language="en",
-                    generation_config={"speed": float(line.get("speech_speed", 1.0)), "volume": 1.0},
-                )
-                response.write_to_file(str(raw_path))
-                last_error = None
-                break
-            except Exception as exc:
-                last_error = exc
-                if attempt < 2:
-                    time.sleep(1.5 * (attempt + 1))
-        if last_error is not None:
-            raise RuntimeError(f"Cartesia failed on line {index} ({speaker}): {last_error}") from last_error
+        if raw_path.exists() and raw_path.stat().st_size >= 1000:
+            print(f"REUSE {index:02d}/44 {speaker}: {raw_path.stat().st_size:,} bytes", flush=True)
+        else:
+            last_error = None
+            speech_speed = float(line.get("speech_speed", 1.0))
+            for attempt in range(3):
+                try:
+                    response = client.tts.generate(
+                        model_id=spec.get("model_id", "sonic-3.6"),
+                        transcript=line["text"],
+                        voice=VOICE_IDS[speaker],
+                        output_format={
+                            "container": "wav",
+                            "encoding": "pcm_s16le",
+                            "sample_rate": SAMPLE_RATE,
+                        },
+                        language="en",
+                        generation_config={"speed": speech_speed, "volume": 1.0},
+                    )
+                    response.write_to_file(str(raw_path))
+                    last_error = None
+                    break
+                except Exception as exc:
+                    last_error = exc
+                    if attempt < 2:
+                        time.sleep(1.5 * (attempt + 1))
+            if last_error is not None:
+                raise RuntimeError(f"Cartesia failed on line {index} ({speaker}): {last_error}") from last_error
 
         if not raw_path.exists() or raw_path.stat().st_size < 1000:
             raise RuntimeError(f"Cartesia returned an empty file for line {index}")
