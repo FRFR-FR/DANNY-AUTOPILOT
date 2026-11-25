@@ -1,0 +1,301 @@
+{
+  "title": "Claude Mythos & Project Glasswing: Full Debate Voice-Over",
+  "source": "CMNS.pdf",
+  "video_filename": "glasswing_full_silent.mp4",
+  "duration_seconds": 318.4,
+  "fps": 30,
+  "resolution": [
+    1280,
+    720
+  ],
+  "notes": [
+    "All start/end times are absolute video seconds from the final silent cut.",
+    "Each utterance begins at start and must finish by end. Unused time remains silent.",
+    "The final shot holds from 315.88 to 318.4 seconds with no voice.",
+    "Pronunciation note: BSD is spoken as individual letters; FFmpeg is spoken as F F mpeg."
+  ],
+  "voices": {
+    "Liam": {
+      "name": "Carl",
+      "description": "Steady Storyteller; mature male voice with calm depth and measured pacing",
+      "id": "ed82c17b-4704-4d34-be43-5d19065acdf1"
+    },
+    "George": {
+      "name": "Nolan",
+      "description": "Expressive Agent; warm, engaging, natural conversational male voice",
+      "id": "65209f8e-6140-4a20-b819-3cc2e21da19b"
+    },
+    "Nadia": {
+      "name": "Lauren",
+      "description": "Lively Narrator; expressive female voice for narration and storytelling",
+      "id": "a33f7a4c-100f-41cf-a1fd-5822e8fc253f"
+    }
+  },
+  "model_id": "sonic-3.6",
+  "lines": [
+    {
+      "speaker": "George",
+      "start": 1.2,
+      "end": 9.58,
+      "text": "Every app you've ever opened. Every bank, every hospital, every power grid. All of it runs on code. And all code has cracks."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 9.88,
+      "end": 16.6,
+      "text": "Most of those cracks stayed invisible for decades. Hidden in plain sight, like the wings of a glasswing butterfly."
+    },
+    {
+      "speaker": "Liam",
+      "start": 16.9,
+      "end": 23.16,
+      "text": "Then, in April twenty twenty-six, an AI called Claude Mythos Preview started finding them. Thousands of them."
+    },
+    {
+      "speaker": "George",
+      "start": 23.45,
+      "end": 28.34,
+      "text": "So. Did Mythos save the internet? Three people. Three very different answers."
+    },
+    {
+      "speaker": "Liam",
+      "start": 29.24,
+      "end": 43.41,
+      "text": "I'm Liam. I run a security operations center, and I say yes. Mythos found thousands of serious flaws, in every major operating system and every major browser, and defenders got to find them first. That's a head start. And head starts win races."
+    },
+    {
+      "speaker": "George",
+      "start": 43.7,
+      "end": 56.89,
+      "text": "I'm George. Thirty years of maintaining C code. I say patched, yes. Saved? Not yet. Finding a bug takes a flash of light. Fixing it takes my weekend. And nobody pays me for my weekends."
+    },
+    {
+      "speaker": "Liam",
+      "start": 57.8,
+      "end": 61.83,
+      "text": "Fixing takes weekends. Nadia, you say the gate is temporary. Go ahead."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 62.7,
+      "end": 74.31,
+      "text": "I'm Nadia. I study how attackers think. I say the gate is temporary. The same skill that finds a flaw can exploit it. And sooner or later, someone without a conscience gets that skill too."
+    },
+    {
+      "speaker": "Liam",
+      "start": 75,
+      "end": 78.28,
+      "text": "Let's start with proof. Exhibit one. Open B S D."
+    },
+    {
+      "speaker": "George",
+      "start": 78.58,
+      "end": 85.51,
+      "text": "The paranoid operating system. People trust it to guard firewalls, because it's famously hard to break."
+    },
+    {
+      "speaker": "Liam",
+      "start": 85.81,
+      "end": 93.73,
+      "text": "Mythos found a bug that had been hiding in it for twenty-seven years. Anyone could connect to a machine, and remotely crash it. Just by connecting."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 94.03,
+      "end": 97.38,
+      "text": "Twenty-seven years. Thousands of expert eyes. Nothing."
+    },
+    {
+      "speaker": "George",
+      "start": 97.68,
+      "end": 106.34,
+      "text": "And that's what gets me. Those folks audit their code for fun. If a bug hid there for twenty-seven years, imagine what's hiding in your router."
+    },
+    {
+      "speaker": "Liam",
+      "start": 106.64,
+      "end": 118.35,
+      "text": "Exhibit two. F F mpeg. It decodes video inside half the software you use. Mythos found a sixteen-year-old flaw, on a line of code that automated testing had hit five million times, without ever noticing."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 119.27,
+      "end": 123.23,
+      "text": "Sixteen years hidden. Five million tests, and none of them noticed."
+    },
+    {
+      "speaker": "George",
+      "start": 124.1,
+      "end": 129.52,
+      "text": "Five million knocks on a door that was unlocked the whole time. Honestly? Humbling."
+    },
+    {
+      "speaker": "Liam",
+      "start": 129.8,
+      "end": 140.85,
+      "text": "Exhibit three. The Linux kernel, which runs most of the world's servers. Mythos chained several small flaws together, step by step, from ordinary user, to total control. On its own. Nobody steering."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 141.15,
+      "end": 147.11,
+      "text": "Impressive. And terrifying. Because a model that can climb that staircase for you, can climb it for them."
+    },
+    {
+      "speaker": "Liam",
+      "start": 147.41,
+      "end": 150.11,
+      "text": "Exactly. Which is why it started behind a gate."
+    },
+    {
+      "speaker": "Liam",
+      "start": 150.46,
+      "end": 165.42,
+      "text": "Project Glasswing. Twelve launch partners, including Amazon, Apple, Cisco, CrowdStrike, Google, Microsoft and the Linux Foundation. Plus over forty more organizations that maintain critical software. Anthropic committed up to a hundred million dollars in usage credits."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 165.72,
+      "end": 175.17,
+      "text": "And the public never got Mythos. Anthropic said it doesn't plan to release it generally, not until safeguards are built and tested on a less risky model first."
+    },
+    {
+      "speaker": "George",
+      "start": 175.47,
+      "end": 183.7,
+      "text": "That part I like. And four million dollars went to open source security groups. For once, the volunteers got a seat at the table."
+    },
+    {
+      "speaker": "Liam",
+      "start": 184.63,
+      "end": 188.94,
+      "text": "Four million for open source, and a seat at the table. Nadia, you have doubts?"
+    },
+    {
+      "speaker": "Nadia",
+      "start": 189.8,
+      "end": 197.8,
+      "text": "A seat. But who handed out the seats? A few companies decided who gets the most powerful security tool on Earth. That's a lot of power."
+    },
+    {
+      "speaker": "Liam",
+      "start": 198.07,
+      "end": 207.69,
+      "text": "It's a vetting program, Nadia, not a throne. And this October, a Cyber Verification Program opened, with three tiers, so more verified security professionals can get in."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 207.99,
+      "end": 219.38,
+      "text": "Fair. And I'll concede something. Your phone, your bank app, your doctor's records all lean on the same open source code. Close one crack, and millions of strangers get safer overnight."
+    },
+    {
+      "speaker": "George",
+      "start": 219.69,
+      "end": 228.88,
+      "text": "But here's what nobody tweets about. Every bug found is a ticket in some volunteer's inbox. Finding got cheap. Fixing is still human."
+    },
+    {
+      "speaker": "Liam",
+      "start": 229.18,
+      "end": 236.6,
+      "text": "Which is why Anthropic promised public recommendations on triage and patch automation. The goal is fewer bugs, patched faster."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 236.9,
+      "end": 238.61,
+      "text": "Promises don't patch servers."
+    },
+    {
+      "speaker": "Liam",
+      "start": 238.91,
+      "end": 244.86,
+      "text": "Nobody said it was finished, Nadia. Anthropic called Glasswing a starting point, and said the work could take years."
+    },
+    {
+      "speaker": "George",
+      "start": 245.16,
+      "end": 249.9,
+      "text": "If the automation works, I'll eat my hat. Gently. It's a good hat."
+    },
+    {
+      "speaker": "George",
+      "start": 250.8,
+      "end": 255.22,
+      "text": "My hat is on the line. Nadia, how much time do we really have?"
+    },
+    {
+      "speaker": "Nadia",
+      "start": 256.07,
+      "end": 264.92,
+      "text": "It had better work fast. One partner's chief technology officer said the gap between discovery and exploitation has gone from months, to minutes."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 265.22,
+      "end": 272.24,
+      "text": "That's my whole point. Anthropic itself warned it won't be long before these abilities spread. Attackers are catching up."
+    },
+    {
+      "speaker": "Liam",
+      "start": 272.54,
+      "end": 278.53,
+      "text": "Sure. So the question isn't whether it spreads. It's who has already patched when it does. Glasswing moved the starting line."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 278.83,
+      "end": 280.64,
+      "text": "A head start. Not a victory."
+    },
+    {
+      "speaker": "George",
+      "start": 280.89,
+      "end": 285.78,
+      "text": "And when the race is every computer on Earth, a head start is worth a lot."
+    },
+    {
+      "speaker": "Liam",
+      "start": 286.28,
+      "end": 289.42,
+      "text": "Before the verdicts, one word each. Mine: head start."
+    },
+    {
+      "speaker": "George",
+      "start": 289.72,
+      "end": 290.61,
+      "text": "Humbling."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 290.91,
+      "end": 291.83,
+      "text": "Fire drill."
+    },
+    {
+      "speaker": "Liam",
+      "start": 292.43,
+      "end": 298.19,
+      "text": "My verdict. It saved the first, most dangerous chapter. Thousands of holes were found by defenders first."
+    },
+    {
+      "speaker": "George",
+      "start": 298.49,
+      "end": 305.7,
+      "text": "Mine. It bought us time, and it humbled us. The software we trusted was cracked. Now, at least, we can see the cracks."
+    },
+    {
+      "speaker": "Nadia",
+      "start": 306,
+      "end": 311.67,
+      "text": "And mine. It didn't save the internet. It gave the internet a chance to save itself. If we use it."
+    },
+    {
+      "speaker": "George",
+      "start": 311.97,
+      "end": 315.88,
+      "text": "Invisible flaws, finally in the light. That's the glasswing."
+    }
+  ]
+}
