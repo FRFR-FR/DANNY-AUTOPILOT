@@ -55,6 +55,15 @@ jobs:
           python -m py_compile cartesia_api/generate_timed_debate.py
           python cartesia_api/generate_timed_debate.py --dialogue production/glasswing_cartesia/dialogue.json --output-dir out/glasswing-cartesia
 
+      - name: Preserve generated line clips for recovery
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: glasswing-cartesia-line-clips
+          path: out/glasswing-cartesia/clips/
+          if-no-files-found: ignore
+          retention-days: 90
+
       - name: Download silent picture when a URL was supplied
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.silent_video_url != '' }}
         env:
