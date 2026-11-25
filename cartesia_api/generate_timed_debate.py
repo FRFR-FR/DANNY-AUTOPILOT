@@ -130,11 +130,13 @@ def main() -> int:
         fitted_path = clips / f"line-{index:02d}-{speaker.lower()}-fit.wav"
 
         last_error = None
-        if raw_path.exists() and raw_path.stat().st_size >= 1000:
+        speech_speed = float(line.get("speech_speed", 1.0))
+        # Cached clips do not carry generation settings; regenerate explicitly accelerated lines.
+        if raw_path.exists() and raw_path.stat().st_size >= 1000 and speech_speed <= 1.0:
             print(f"REUSE {index:02d}/44 {speaker}: {raw_path.stat().st_size:,} bytes", flush=True)
         else:
+            raw_path.unlink(missing_ok=True)
             last_error = None
-            speech_speed = float(line.get("speech_speed", 1.0))
             for attempt in range(3):
                 try:
                     response = client.tts.generate(
