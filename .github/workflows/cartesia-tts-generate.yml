@@ -1,0 +1,58 @@
+name: Cartesia TTS - Generate WAV
+
+on:
+  workflow_dispatch:
+    inputs:
+      transcript:
+        description: Text to turn into speech
+        required: true
+        type: string
+        default: "Hello! This is a test of Cartesia text to speech."
+      voice_id:
+        description: Cartesia voice ID (defaults to the stock English Skylar voice)
+        required: true
+        type: string
+        default: "f786b574-daa5-4673-aa0c-cbe3e8534c02"
+      model_id:
+        description: Cartesia model ID
+        required: true
+        type: string
+        default: "sonic-latest"
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: cartesia_api/requirements.txt
+
+      - name: Install Cartesia SDK
+        run: python -m pip install -r cartesia_api/requirements.txt
+
+      - name: Generate WAV
+        env:
+          CARTESIA_API_KEY: ${{ secrets.CARTESIA_API_KEY }}
+          CARTESIA_TRANSCRIPT: ${{ inputs.transcript }}
+          CARTESIA_VOICE_ID: ${{ inputs.voice_id }}
+          CARTESIA_MODEL_ID: ${{ inputs.model_id }}
+          CARTESIA_OUTPUT_PATH: output/cartesia.wav
+        run: python cartesia_api/generate.py
+
+      - name: Upload generated audio
+        uses: actions/upload-artifact@v4
+        with:
+          name: cartesia-tts-audio
+          path: output/cartesia.wav
+          if-no-files-found: error
+          retention-days: 90
