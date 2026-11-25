@@ -142,7 +142,7 @@ def main() -> int:
                         "sample_rate": SAMPLE_RATE,
                     },
                     language="en",
-                    generation_config={"speed": 1.0, "volume": 1.0},
+                    generation_config={"speed": float(line.get("speech_speed", 1.0)), "volume": 1.0},
                 )
                 response.write_to_file(str(raw_path))
                 last_error = None
